@@ -11,14 +11,12 @@ def insert(template, insertions):
             if i == len(template) - 1:
                 break
             if template[i] == pair[0] and template[i + 1] == pair[1]:
-                # print(f"Rule {pair} --> {insertion} matches at {template[i:i+2]}")
                 modifications.append((i + 1, insertion))
     
     new = list(template)
     modifications = sorted(modifications, key=lambda x : x[0])
     while len(modifications) > 0:
         index, insertion = modifications[0]
-        # print(f"inserting {insertion} at {index}")
         new.insert(index, insertion)
         modifications = [(i + 1, _) for i, _ in modifications[1:]]
     return new

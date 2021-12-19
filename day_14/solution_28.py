@@ -8,28 +8,19 @@ def insert(pairs, insertions, first_pair):
     handle_first_pair = True
     for pair, action in insertions:
         if pair in pairs.keys():
-            # print(f"applying rule {pair} -> {action} ")
             if pair == first_pair and handle_first_pair:
-                # print("first pair", first_pair, end=" ")
                 first_pair = pair[0] + action
-                # print("has changed to", first_pair)
                 handle_first_pair = False
 
             add_if_exists(add_pairs, pair[0] + action, pairs[pair])
             add_if_exists(add_pairs, action + pair[1], pairs[pair])
             add_if_exists(remove_pairs, pair, pairs[pair])
-            # print(f"create {pairs[pair]} pairs of ", pair[0] + action)
-            # print(f"create {pairs[pair]} pairs of ", action + pair[1])
-            # print(f"remove {pairs[pair]} pairs of", pair)
     
     for pair, num in add_pairs.items():
-        # print(f"adding {num} pairs of {pair}")
         add_if_exists(pairs, pair, num)
     for pair, num in remove_pairs.items():
-        # print(f"removing {num} pairs of {pair}")
         add_if_exists(pairs, pair, -1 * num)
     
-    # print(pairs)
     return first_pair
 
 def add_if_exists(d, k, v):
