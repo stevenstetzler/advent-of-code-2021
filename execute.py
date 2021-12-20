@@ -28,6 +28,8 @@ def main():
     to_execute = []
     for root, dirs, files in os.walk(dir):
         for file in files:
+            if "__pycache__" in root:
+                continue
             if ".py" in file:
                 to_execute.append(os.path.join(root, file))
     
