@@ -47,7 +47,11 @@ def main():
         if verbose:
             cmd += ["--verbose"]
         if extra:
-            cmd += extra
+            for arg in extra:
+                if "=" in arg:
+                    cmd += [f"--{arg}"]
+                else:
+                    cmd += [arg]
         cwd = os.path.dirname(file)
         print(f"# executing '{' '.join(cmd)}' in {cwd}")
         subprocess.call(cmd, cwd=cwd)
