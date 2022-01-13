@@ -4,6 +4,7 @@ import numpy as np
 import io
 import argparse
 import os
+import sys
 from pathlib import Path
 import subprocess
 
@@ -53,9 +54,9 @@ def main():
                 else:
                     cmd += [arg]
         cwd = os.path.dirname(file)
-        print(f"# executing '{' '.join(cmd)}' in {cwd}")
+        print(f"# executing '{' '.join(cmd)}' in {cwd}", file=sys.stderr)
         subprocess.call(cmd, cwd=cwd)
-        print("")
+        print("", file=sys.stderr)
 
 if __name__ == "__main__":
     main()

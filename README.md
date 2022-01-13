@@ -1,7 +1,14 @@
 # advent-of-code-2021
-Advent of Code 2021 solutions
+
+Advent of Code 2021 solutions.
 
 Solutions written in Python. Requires Python 3 and the `numpy` package.
+
+## Results
+
+I solved up to day 18. I couldn't code up a solution for day 19 in a timely manner and lost motivation to continue past that once the season was over. I may return to complete day 20+ or return to day 19. Doing this was fun! I look forward to doing this again next year.
+
+## Reproducing solutions
 
 Run a particular solution with:
 ```
